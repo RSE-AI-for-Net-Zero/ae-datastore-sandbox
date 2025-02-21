@@ -57,7 +57,11 @@ _setup()
     # Create default local file location
     # ! Currently in <instance_path/data> but we want an external mount
     INVENIO_INSTANCE_PATH=$(${CMD} shell --no-term-title -c 'print(app.instance_path, end="")')
-    mkdir ${INVENIO_INSTANCE_PATH}/data
+
+    if ! test -d ${INVENIO_INSTANCE_PATH}/data;
+    then mkdir ${INVENIO_INSTANCE_PATH}/data;
+    fi
+    
     ${CMD} files location create --default default-location ${INVENIO_INSTANCE_PATH}/data
 
     # Create admin role
