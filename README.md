@@ -1,6 +1,29 @@
 # AE Datastore Sandbox
 
-Welcome to your InvenioRDM instance.
+## Requirements
+
+1. Docker
+2. [pipenv](https://pipenv.pypa.io/en/latest/)
+3. Python v3.9
+4. Node v20.9.0 & NPM v10.1.0 (e.g., with [NVM](https://github.com/nvm-sh/nvm))
+
+## Build
+
+1. Clone the repo and cd into directory
+```
+git clone git@github.com:RSE-AI-for-Net-Zero/ae-datastore-sandbox.git
+cd ae-datastore-sandbox
+```
+2. Run the install script
+```
+source install.sh
+```
+## Set up services
+
+```
+source setup-services.sh
+start_con
+```
 
 ## Getting started
 
