@@ -1,5 +1,7 @@
 # AE Datastore Sandbox
 
+🌈 For hacking and experimentation! 🙂
+
 Adapted from a local development install of InvenioRDM v12.0, with the following changes
 
 - Optional support for authentication via LDAP
@@ -79,9 +81,14 @@ source setup-services.sh && _cleanup
 ```
 ## Hints
 
-1. After setting up a new user on the sign-up page a confirmation link is echoed to standard out in the terminal window in which you launched ```start-app.sh```.  Just copy and paste this link into your browser to confirm the new user's email address.
+1. After setting up a new user via the sign-up page, a confirmation link is echoed to standard out in the terminal window in which you launched ```start-app.sh```.  Just copy and paste this link into your browser to confirm the new user's email address.  Alternatively, disable email confirmation in config
+
+   ```
+   SECURITY_LOGIN_WITHOUT_CONFIRMATION = True
+   ```
+   (when LDAP authentication is enabled, account registration, recovery and confirmation are all disabled anyway).
    
-2. To access the CLI utility
+3. To access the CLI utility
    ```
    cd ae-datastore-sandbox
    pipenv run ae-datastore --help
