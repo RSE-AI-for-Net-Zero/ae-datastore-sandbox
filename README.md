@@ -20,29 +20,60 @@ source install.sh
 ```
 ## Set up services
 
+### Source the setup script
 ```
 source setup-services.sh
-start_con
 ```
 
-## Getting started
+### Start the docker containers
 
-Run the following commands in order to start your new InvenioRDM instance:
-
-```console
-invenio-cli containers start --lock --build --setup
+These sometimes take a few seconds to come up - repeating this command gives their current status
+```
+start_containers
 ```
 
-The above command first builds the application docker image and afterwards
-starts the application and related services (database, Opensearch, Redis
-and RabbitMQ). The build and boot process will take some time to complete,
-especially the first time as docker images have to be downloaded during the
-process.
+### Initialise services and fixtures (& optionally) load the demo data
+```
+_setup && fixtures && demo
+```   
+or
+```
+_setup && fixtures
+```
 
-Once running, visit https://127.0.0.1 in your browser.
+## Launch the app
+First ensure the containers are running
+```
+source setup-services.sh && start_containers
+```
+### Launch the celery workers
+In a terminal window
+```
+./start-celery.sh
+```
+Leave this running.  For a newly initialised service the workers have to clear the initial task queue - let this complete before the next step
 
-**Note**: The server is using a self-signed SSL certificate, so your browser
-will issue a warning that you will have to by-pass.
+### Launch the app
+In a separate terminal window, enter
+```
+./start-app.sh
+```
+then navigate to https://127.0.0.1:5000
+
+The app uses demo SSL certificates prompting your web browser to issue a warning - just ignore and continue
+
+### Shut down services
+```
+source setup-services.sh && stop_containers
+```
+### Destroy DB, search indexes, clear task queue & wipe uploaded data
+```
+source setup-services.sh && _cleanup
+```
+## Hints
+
+1. After setting up a new user on the sign-up page a confirmation link is echoed to standard out in the terminal window in which you launched ```start-app.sh```.  Just copy and paste this link into your browser to confirm the new user's email address.
+
 
 ## Overview
 
