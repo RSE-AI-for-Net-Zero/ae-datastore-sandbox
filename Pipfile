@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+check-manifest = ">=0.25"
+
+[packages]
+invenio-app-rdm = {extras = ["opensearch2"], version = "~=12.0.0"}
+ae-datastore-sandbox = {editable = true, path="./site"}
+uwsgi = ">=2.0"
+uwsgitop = ">=0.11"
+uwsgi-tools = ">=1.1.1"
+invenio-factory-patch = {ref = "RDMv12-sandbox", git = "ssh://git@github.com/RSE-AI-for-Net-Zero/invenio-factory-patch.git"}
+invenio-rdm-domain-records = {ref = "main", git = "ssh://git@github.com/RSE-AI-for-Net-Zero/invenio-rdm-domain-records.git"}
+ae-datastore-schemas = {git = "ssh://git@github.com/RSE-AI-for-Net-Zero/ae-datastore-schemas.git"}
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = false

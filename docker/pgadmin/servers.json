@@ -1,0 +1,13 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "ae-datastore-sandbox-db",
+      "Group": "Servers",
+      "Host": "ae-datastore-sandbox-db-1",
+      "Port": 5432,
+      "MaintenanceDB": "postgres",
+      "Username": "ae-datastore-sandbox",
+      "SSLMode": "prefer"
+    }
+  }
+}
