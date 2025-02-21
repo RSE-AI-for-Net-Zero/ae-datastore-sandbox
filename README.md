@@ -1,5 +1,12 @@
 # AE Datastore Sandbox
 
+Adapted from a local development install of InvenioRDM v12.0, with the following changes
+
+- Optional support for authentication via LDAP
+- [invenio-factory-patch](https://github.ic.ac.uk/aeronautics/invenio-factory-patch) enforces ordering in the loading of some extensions from entry points, providing replacements for the factory functions (e.g., `create_app`), wsgi and celery entry points defined in ``invenio-app``, as well as a replacement for the `invenio` CLI utility
+- [invenio-rdm-domain-records](https://github.ic.ac.uk/aeronautics/invenio-rdm-domain-records) extends the internal data model, defined in [ae-datastore-schemas](https://github.ic.ac.uk/aeronautics/ae-datastore-schemas)
+
+
 ## Requirements
 
 1. Docker
@@ -66,14 +73,20 @@ The app uses demo SSL certificates prompting your web browser to issue a warning
 ```
 source setup-services.sh && stop_containers
 ```
-### Destroy DB, search indexes, clear task queue & wipe uploaded data
+### Destroy DB, search indexes, clear task queue & wipe uploaded data :skull: :fire: ❗
 ```
 source setup-services.sh && _cleanup
 ```
 ## Hints
 
 1. After setting up a new user on the sign-up page a confirmation link is echoed to standard out in the terminal window in which you launched ```start-app.sh```.  Just copy and paste this link into your browser to confirm the new user's email address.
-
+   
+2. To access the CLI utility
+   ```
+   cd ae-datastore-sandbox
+   pipenv run ae-datastore --help
+   ```
+   Use this rather than `pipenv run invenio ...` since it uses the correct factory function to load the app. 
 
 ## Overview
 
