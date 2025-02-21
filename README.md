@@ -21,6 +21,7 @@ Adapted from a local development install of InvenioRDM v12.0, with the following
 1. Clone the repo and cd into directory
 ```
 git clone git@github.com:RSE-AI-for-Net-Zero/ae-datastore-sandbox.git
+git checkout aero
 cd ae-datastore-sandbox
 ```
 2. Run the install script
