@@ -18,11 +18,11 @@ Adapted from a local development install of InvenioRDM v12.0, with the following
 
 ## Build
 
-1. Clone the repo and cd into directory
+1. Clone the repo, cd into directory and checkout a tagged commit
 ```
 git clone git@github.com:RSE-AI-for-Net-Zero/ae-datastore-sandbox.git
-git checkout aero
 cd ae-datastore-sandbox
+git checkout no-ldap
 ```
 2. Run the install script
 ```
