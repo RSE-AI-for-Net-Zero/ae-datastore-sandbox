@@ -34,6 +34,9 @@ INVENIO_INSTANCE_PATH=$(${CMD} shell --no-term-title -c 'print(app.instance_path
 
 # symlink_project_file_or_folder invenio.cfg
 python force_symlink.py ${INVENIO_INSTANCE_PATH} invenio.cfg
+python force_symlink.py ${INVENIO_INSTANCE_PATH} invenio_factory_patch_api.cfg
+python force_symlink.py ${INVENIO_INSTANCE_PATH} invenio_factory_patch_ui.cfg
+
 
 # symlink_project_file_or_folder templates
 python force_symlink.py ${INVENIO_INSTANCE_PATH} templates
