@@ -2,7 +2,7 @@ import errno
 import argparse
 import pathlib
 from os import listdir, remove, symlink, getcwd
-from invenio_cli.helpers.filesystem import force_symlink
+
 
 parser = argparse.ArgumentParser()
 
