@@ -8,6 +8,8 @@ BASEURL = "https://127.0.0.1:5000/api"
 ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN", None)
 if not ACCESS_TOKEN:
     sys.exit("ACCESS_TOKEN not set")
+
+    
                     
 #1. Create new record
 r = requests.post(f"{BASEURL}/records",
@@ -17,6 +19,8 @@ r = requests.post(f"{BASEURL}/records",
 assert r.status_code == 201 #Created
 record = r.json()
 record_id = record["id"]
+
+
 
 #3. Add some invalid domain metadata to record 
 record["metadata"] = {"domain_metadata": {"entry_type": {"longitude": 22.0,
@@ -125,6 +129,18 @@ r = requests.delete(f"{BASEURL}/records/{record_id}/draft/files/{filename}",
 
 assert r.status_code == 204 #No Content
 
+
+'''
+json = {"receiver": {"community": "65f7cb8c-802a-4c6a-ba71-8d0a3bad0e47"},
+        "type": "community-submission"}
+r = requests.put(f"{BASEURL}/records/{record_id}/draft/review",
+                 params = {"access_token": ACCESS_TOKEN},
+                 json = json,
+                 verify = False)
+'''
+
+
+
 #9.  Publish record
 #  -- first a
 
@@ -133,6 +149,19 @@ r = requests.post(f"{BASEURL}/records/{record_id}/draft/actions/publish",
                   verify = False)
 
 assert r.status_code == 202 #Accepted
+
+#2. Add draft to community
+json = {"communities": [{"id": "tea"}]}
+
+r = requests.post(f"{BASEURL}/records/{record_id}/communities",
+                 params = {"access_token": ACCESS_TOKEN},
+                 json=json,
+                 verify = False)
+
+
+
+
+
 
 
 

@@ -14,7 +14,7 @@ uwsgitop = ">=0.11"
 uwsgi-tools = ">=1.1.1"
 
 invenio-factory-patch = {ref = "main", git = "ssh://git@github.com/RSE-AI-for-Net-Zero/invenio-factory-patch.git"}
-invenio-rdm-domain-records = {ref = "wrap-validate", git = "ssh://git@github.com/RSE-AI-for-Net-Zero/invenio-rdm-domain-records.git"}
+invenio-rdm-domain-records = {ref = "main", git = "ssh://git@github.com/RSE-AI-for-Net-Zero/invenio-rdm-domain-records.git"}
 ae-datastore-schemas = {git = "ssh://git@github.com/RSE-AI-for-Net-Zero/ae-datastore-schemas.git"}
 invenio-ldapclient = {ref = "Imperial_Aeronautics", git = "ssh://git@github.com/RSE-AI-for-Net-Zero/invenio-ldapclient.git"}
 
